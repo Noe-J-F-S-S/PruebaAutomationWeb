@@ -8,6 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -51,15 +52,20 @@ public class ShoppingCartStepdefs {
         shoppingCart.typePassword(password);
         shoppingCart.login();
         screenShot();
+        System.out.println("Validacion de user y password: ");
+        System.out.println("user: "+ user);
+        System.out.println("password: "+ password);
 
     }
 
     @When("navego a la categoria {string} y subcategoria {string}")
-    public void navegoALaCategoriaYSubcategoria(String arg0, String arg1) {
+    public void navegoALaCategoriaYSubcategoria(String categoria, String subcategoria) {
+        shoppingCart.navegarCategoria(categoria, subcategoria);
     }
 
     @And("agrego {int} unidades del primer producto al carrito")
-    public void agregoUnidadesDelPrimerProductoAlCarrito(int arg0) {
+    public void agregoUnidadesDelPrimerProductoAlCarrito(int cantidad) {
+        shoppingCart.agregarProducto(cantidad);
     }
 
     @Then("valido en el popup la confirmación del producto agregado")

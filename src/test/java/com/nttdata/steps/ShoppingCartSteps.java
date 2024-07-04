@@ -42,4 +42,21 @@ public class ShoppingCartSteps {
         this.driver.findElement(LoginShoppingPage.loginButton).click();
 
     }
+    public void navegarCategoria(String categoria, String subcategoria){
+        WebElement category = driver.findElement(By.xpath("//header/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[1]/a[1]"));
+        category.click();
+        WebElement subcategory = driver.findElement(By.xpath("//body/main[1]/section[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/ul[1]/li[1]/a[1]"));
+        subcategory.click();
+    }
+
+    public void agregarProducto (int cantidad){
+        WebElement elegirproducto = driver.findElement(By.xpath("//body/main[1]/section[1]/div[1]/div[1]/div[2]/section[1]/section[1]/div[3]/div[1]/div[1]/article[1]/div[1]/div[1]/a[1]/picture[1]/img[1]"));
+        elegirproducto.click();
+        WebElement agregarCarrito = driver.findElement(By.xpath("//body/main[1]/section[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/div[1]/div[2]/button[1]"));
+        agregarCarrito.click();
+
+//        WebElement cantidadIntput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main[1]/section[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[2]/form[1]/div[2]/div[1]/div[1]/div[1]/span[3]/button[1]/i[1]\n")));
+//        cantidadIntput.click();
+
+    }
 }
